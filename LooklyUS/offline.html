@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#ff6b35">
+  <title>You're Offline — LooklyUS</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fafafa;
+      color: #222;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .box { max-width: 460px; }
+
+    .logo-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 20px;
+      background: #ff6b35;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    h1 { font-size: 28px; letter-spacing: -0.5px; margin-bottom: 10px; color: #111; }
+    p { color: #666; margin-bottom: 24px; }
+
+    button {
+      border: none;
+      background: #ff6b35;
+      color: #fff;
+      padding: 12px 28px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #e95724; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="logo-icon">LU</div>
+    <h1>You're offline</h1>
+    <p>LooklyUS needs an internet connection to load this page. Check your connection and try again.</p>
+    <button onclick="location.reload()">Try again</button>
+  </div>
+</body>
+</html>
