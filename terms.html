@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5741PZ1V91"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5741PZ1V91');
+</script>
 <!-- Primary Favicon (.ico) -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/x-icon" href="https://looklyus.netlify.app/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="https://looklyus.netlify.app/favicon.ico">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +25,6 @@
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #ffffff;
@@ -24,10 +32,7 @@
       line-height: 1.5;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
-
+    /* =========================       HEADER    ========================= */
     header {
       border-bottom: 1px solid #eee;
       padding: 16px 5%;
@@ -36,7 +41,6 @@
       justify-content: space-between;
       background: #fff;
     }
-
     .brand {
       display: inline-flex;
       flex-direction: column;
@@ -44,100 +48,310 @@
       text-decoration: none;
       color: inherit;
     }
-
     .brand-main {
       display: flex;
       align-items: center;
       gap: 7px;
     }
-
-    /* LooklyUS Icon */
     .logo-icon {
       width: 38px;
       height: 38px;
       background: #ff6b35;
       color: #ffffff;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       border-radius: 11px;
-
       font-size: 17px;
       font-weight: 800;
       letter-spacing: 1px;
-
       line-height: 1;
       flex-shrink: 0;
     }
-
-    /* LooklyUS text */
     .logo {
       font-size: 28px;
       font-weight: 800;
       letter-spacing: -1px;
       line-height: 1;
     }
-
     .logo span {
       color: #ff6b35;
       font-weight: 500;
     }
-
-    /* Amazon disclosure */
     .associate {
       margin-top: 4px;
       margin-left: 47px;
-
       font-size: 10px;
       font-weight: 500;
-
       opacity: 0.65;
       letter-spacing: 0.2px;
     }
-
     nav a {
       text-decoration: none;
       color: #555;
       margin-left: 25px;
       font-size: 15px;
     }
-
     nav a:hover {
       color: #ff6b35;
     }
 
-
-    /* =========================
-       PRIVACY POLICY CONTENT
-    ========================= */
-
-    .policy {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 60px 20px 70px;
+    /* =========================       CONTENT SECTION (ALL DEVICES)    ========================= */
+    main.container {
+      width: 100%;
+      max-width: 1100px;  /* Aligns with header container on desktop */
+      margin: 0 auto;     /* Centers block horizontally */
+      padding: 60px 40px; /* Comfortable top/bottom & side margins */
+      box-sizing: border-box;
     }
 
-    .policy h1 {
-      font-size: 38px;
+    main.container h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 28px;
+      line-height: 1.2;
+    }
+
+    main.container p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #333333;
+      margin-bottom: 22px;
+      max-width: 850px;   /* Optimal reading line length */
+    }
+
+    /* =========================       HERO    ========================= */
+    .hero {
+      text-align: center;
+      padding: 75px 20px 55px;
+      background: #fafafa;
+    }
+    .hero h1 {
+      font-size: 46px;
+      margin-bottom: 15px;
       color: #111;
       letter-spacing: -1px;
-      margin-bottom: 24px;
     }
-
-    .policy p {
+    .hero p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .search-box {
+      max-width: 680px;
+      margin: auto;
+      display: flex;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 18px;
       font-size: 16px;
-      color: #444;
-      line-height: 1.7;
-      margin-bottom: 18px;
+    }
+    .search-box button {
+      border: none;
+      background: #ff6b35;
+      color: white;
+      padding: 0 28px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .search-box button:hover {
+      background: #e95724;
     }
 
+    /* =========================       POPULAR SEARCHES    ========================= */
+    .popular {
+      padding: 35px 5%;
+      text-align: center;
+    }
+    .popular h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tag {
+      border: 1px solid #ddd;
+      padding: 10px 17px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #444;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+    .tag:hover {
+      border-color: #ff6b35;
+      color: #ff6b35;
+    }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* =========================       PRODUCTS    ========================= */
+    .section {
+      padding: 45px 5%;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    .section-header h2 {
+      font-size: 26px;
+    }
+    .section-header a {
+      color: #ff6b35;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .product {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+      transition: 0.2s;
+    }
+    .product:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      background: #fafafa;
+      padding: 15px;
+    }
+    .product-info {
+      padding: 16px;
+    }
+    .product-info h3 {
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .product-info p {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+    .amazon-btn {
+      display: block;
+      text-align: center;
+      background: #111;
+      color: white;
+      text-decoration: none;
+      padding: 11px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+    .amazon-btn:hover {
+      background: #333;
+    }
 
+    /* =========================       EXPLORE CATEGORIES    ========================= */
+    .categories-section {
+      background: #fafafa;
+      padding: 55px 5%;
+    }
+    .categories-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+    .categories-title h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+      color: #111;
+    }
+    .categories-title p {
+      color: #777;
+      font-size: 15px;
+    }
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      max-width: 1400px;
+      margin: auto;
+    }
+    .category {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #222;
+      transition: 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      border-color: #ddd;
+    }
+    .category-image {
+      width: 100%;
+      aspect-ratio: 400 / 300;
+      overflow: hidden;
+      background: #f5f5f5;
+    }
+    .category-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .category-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .category-content h3 {
+      font-size: 17px;
+      line-height: 1.35;
+      margin-bottom: 16px;
+      min-height: 46px;
+    }
+    .category-amazon-btn {
+      margin-top: auto;
+      display: block;
+      text-align: center;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      padding: 11px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+    .category-amazon-btn:hover {
+      background: #ff6b35;
+    }
+
+    /* =========================       FOOTER    ========================= */
     footer {
       margin-top: 0;
       border-top: 1px solid #eee;
@@ -147,17 +361,14 @@
       font-size: 13px;
       background: #fff;
     }
-
     footer a {
       color: #666;
       margin: 0 10px;
       text-decoration: none;
     }
-
     footer a:hover {
       color: #ff6b35;
     }
-
     .disclosure {
       max-width: 700px;
       margin: 18px auto 0;
@@ -166,30 +377,132 @@
       line-height: 1.6;
     }
 
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 700px) {
-
-      header {
-        padding: 15px 20px;
+    /* =========================       TABLET    ========================= */
+    @media (max-width: 1100px) {
+      .categories {
+        grid-template-columns: repeat(3, 1fr);
       }
-
-      nav {
-        display: none;
-      }
-
-      .policy {
-        padding: 40px 20px 50px;
-      }
-
-      .policy h1 {
-        font-size: 30px;
+      .products {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
+    /* =========================       MOBILE / RESPONSIVE BREAKPOINTS    ========================= */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #222;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      /* Mobile adjustment for Content Section */
+      main.container {
+        padding: 32px 20px;
+      }
+      main.container h1 {
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+      }
+      main.container p {
+        font-size: 0.98rem;
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        order: 1;
+        margin-right: 0;
+      }
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border-top: 1px solid #eee;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        z-index: 1000;
+      }
+      nav.active {
+        display: block;
+      }
+      nav a {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+      }
+      .menu-toggle {
+        order: 2;
+        display: block;
+        margin-left: auto;
+      }
+
+      .hero {
+        padding: 55px 20px 40px;
+      }
+      .hero h1 {
+        font-size: 32px;
+      }
+      .hero p {
+        font-size: 16px;
+      }
+      .search-box {
+        width: 100%;
+      }
+      .search-box input {
+        padding: 15px;
+        font-size: 14px;
+      }
+      .search-box button {
+        padding: 0 18px;
+      }
+      .products {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .product img {
+        height: 160px;
+      }
+      .product-info {
+        padding: 12px;
+      }
+      .product-info h3 {
+        font-size: 14px;
+      }
+      .categories-section {
+        padding: 40px 20px;
+      }
+      .categories {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .category-content h3 {
+        min-height: auto;
+      }
+      .section {
+        padding: 35px 20px;
+      }
+      .section-header h2 {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 
@@ -202,6 +515,7 @@
 ========================= -->
 
 <header>
+<button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
 
 <a href="#" class="brand">
 
@@ -238,8 +552,7 @@
 <!-- =========================
      BODY CONTENT
 ========================= -->
-
-<main class="policy">
+<main class="container">
 
 <h1>Terms of Use</h1>
 
@@ -276,16 +589,33 @@
 
   <br>
 
-  <a href="./about.html" target="_blank">About</a>
-  <a href="./privacy-policy.html" target="_blank">Privacy</a>
-  <a href="./terms.html" target="_blank">Terms</a>
-  <a href="./affiliate-disclosure.html" target="_blank">Affiliate Disclosure</a>
+  <a href="https://looklyus.netlify.app/about.html" target="_blank">About</a>
+  <a href="https://looklyus.netlify.app/privacy-policy.html" target="_blank">Privacy</a>
+  <a href="https://looklyus.netlify.app/terms.html" target="_blank">Terms</a>
+  <a href="https://looklyus.netlify.app/affiliate-disclosure.html" target="_blank">Affiliate Disclosure</a>
 
   <p class="disclosure">
     As an Amazon Associate I earn from qualifying purchases.
   </p>
 
 </footer>
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const nav = document.querySelector('nav');
+
+  // Toggle menu when clicking the menu button
+  menuToggle.addEventListener('click', function (e) {
+    e.stopPropagation(); // Prevents the document click listener from firing immediately
+    nav.classList.toggle('active');
+  });
+
+  // Close menu when clicking anywhere outside
+  document.addEventListener('click', function (e) {
+    if (nav.classList.contains('active') && !nav.contains(e.target) && !menuToggle.contains(e.target)) {
+      nav.classList.remove('active');
+    }
+  });
+</script>
 
 </body>
 </html>
