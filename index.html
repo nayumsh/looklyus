@@ -1,0 +1,1404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Primary Favicon (.ico) -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LooklyUS — Discover Products You'll Love</title>
+<meta name="description" content="LooklyUS helps you discover trending products and popular categories, with links to shop on Amazon. As an Amazon Associate, we earn from qualifying purchases.">
+
+
+<!-- PWA -->
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#ff6b35">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="LooklyUS">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      border-bottom: 1px solid #eee;
+      padding: 16px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+    }
+
+  .brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-main {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* LooklyUS Icon */
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  background: #ff6b35;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+
+/* LooklyUS text */
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+    .logo span {
+      color: #ff6b35;
+  font-weight: 500;
+}
+
+/* Amazon disclosure */
+.associate {
+  margin-top: 4px;
+  margin-left: 47px;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  opacity: 0.65;
+  letter-spacing: 0.2px;
+}
+
+    nav a {
+      text-decoration: none;
+      color: #555;
+      margin-left: 25px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #ff6b35;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      text-align: center;
+      padding: 75px 20px 55px;
+      background: #fafafa;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      margin-bottom: 15px;
+      color: #111;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .search-box {
+      max-width: 680px;
+      margin: auto;
+      display: flex;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 18px;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      border: none;
+      background: #ff6b35;
+      color: white;
+      padding: 0 28px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .search-box button:hover {
+      background: #e95724;
+    }
+
+
+    /* =========================
+       POPULAR SEARCHES
+    ========================= */
+
+    .popular {
+      padding: 35px 5%;
+      text-align: center;
+    }
+
+    .popular h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      border: 1px solid #ddd;
+      padding: 10px 17px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #444;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .tag:hover {
+      border-color: #ff6b35;
+      color: #ff6b35;
+    }
+
+
+    /* =========================
+       PRODUCTS
+    ========================= */
+
+    .section {
+      padding: 45px 5%;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .section-header h2 {
+      font-size: 26px;
+    }
+
+    .section-header a {
+      color: #ff6b35;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+      transition: 0.2s;
+    }
+
+    .product:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      background: #fafafa;
+      padding: 15px;
+    }
+
+    .product-info {
+      padding: 16px;
+    }
+
+    .product-info h3 {
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .amazon-btn {
+      display: block;
+      text-align: center;
+      background: #111;
+      color: white;
+      text-decoration: none;
+      padding: 11px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .amazon-btn:hover {
+      background: #333;
+    }
+
+
+    /* =========================
+       EXPLORE CATEGORIES
+    ========================= */
+
+    .categories-section {
+      background: #fafafa;
+      padding: 55px 5%;
+    }
+
+    .categories-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .categories-title h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .categories-title p {
+      color: #777;
+      font-size: 15px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .category {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #222;
+      transition: 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      border-color: #ddd;
+    }
+
+    /* 400 x 300 ratio */
+
+    .category-image {
+      width: 100%;
+      aspect-ratio: 400 / 300;
+      overflow: hidden;
+      background: #f5f5f5;
+    }
+
+    .category-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .category-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .category-content h3 {
+      font-size: 17px;
+      line-height: 1.35;
+      margin-bottom: 16px;
+      min-height: 46px;
+    }
+
+    .category-amazon-btn {
+      margin-top: auto;
+      display: block;
+      text-align: center;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      padding: 11px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .category-amazon-btn:hover {
+      background: #ff6b35;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      margin-top: 0;
+      border-top: 1px solid #eee;
+      padding: 40px 5%;
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      background: #fff;
+    }
+
+    footer a {
+      color: #666;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #ff6b35;
+    }
+
+    .disclosure {
+      max-width: 700px;
+      margin: 18px auto 0;
+      font-size: 12px;
+      color: #888;
+      line-height: 1.6;
+    }
+
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 1100px) {
+
+      .categories {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 15px 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 55px 20px 40px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .search-box {
+        width: 100%;
+      }
+
+      .search-box input {
+        padding: 15px;
+        font-size: 14px;
+      }
+
+      .search-box button {
+        padding: 0 18px;
+      }
+
+      .products {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .product img {
+        height: 160px;
+      }
+
+      .product-info {
+        padding: 12px;
+      }
+
+      .product-info h3 {
+        font-size: 14px;
+      }
+
+      .categories-section {
+        padding: 40px 20px;
+      }
+
+      .categories {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .category-content h3 {
+        min-height: auto;
+      }
+
+      .section {
+        padding: 35px 20px;
+      }
+
+      .section-header h2 {
+        font-size: 22px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<a href="#" class="brand">
+
+  <div class="brand-main">
+
+    <div class="logo-icon">LU</div>
+
+    <div class="logo">
+      Lookly<span>US</span>
+    </div>
+
+  </div>
+
+  <div class="associate">
+    An Amazon Associate
+  </div>
+
+</a>
+
+
+  <nav>
+
+    <a href="#">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#trending">Trending</a>
+    <a href="#gifts">Gifts</a>
+
+  </nav>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+  <h1>What are you looking for?</h1>
+
+  <p>
+    Find useful, interesting, and worth-discovering products for your everyday life.
+  </p>
+
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      placeholder="Search products, brands, and more..."
+      id="searchInput"
+    >
+
+    <button onclick="searchProducts()">
+      Search
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     POPULAR SEARCHES
+========================= -->
+
+<section class="popular">
+
+  <h2>Popular Searches</h2>
+
+  <div class="tags">
+
+
+  <a href="https://www.amazon.com/s?k=wireless+buds&tag=nsk4426" class="tag" target="_blank"
+          rel="nofollow sponsored noopener">
+        Wireless Earbuds
+        </a>
+
+  <a href="https://www.amazon.com/s?k= Air+Fryers&tag=nsk4426" class="tag" target="_blank"
+          rel="nofollow sponsored noopener">
+      Air Fryers
+        </a>
+ <a href="https://www.amazon.com/s?k= Smart+Watches&tag=nsk4426" class="tag" target="_blank"
+          rel="nofollow sponsored noopener">
+      Smart Watches
+        </a>
+<a href="https://www.amazon.com/s?k=offee+Makers&tag=nsk4426" class="tag" target="_blank"
+          rel="nofollow sponsored noopener">
+     Coffee Makers
+        </a>
+<a href="https://www.amazon.com/s?k=Standing+Deskss&tag=nsk4426" class="tag" target="_blank"
+          rel="nofollow sponsored noopener">
+     Standing Desks
+        </a>
+<a href="https://www.amazon.com/s?k=TVs&tag=nsk4426" class="tag" target="_blank"
+          rel="nofollow sponsored noopener">
+     TVs
+        </a>
+<a href="https://www.amazon.com/s?k=Christmas
++Gifts&tag=nsk4426" class="tag" target="_blank"
+          rel="nofollow sponsored noopener">
+     Christmas Gifts
+        </a>
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     TRENDING PRODUCTS
+========================= -->
+
+<section class="section" id="trending">
+
+  <div class="section-header">
+
+    <h2>Trending Products</h2>
+
+
+
+  </div>
+
+
+  <div class="products">
+
+
+    <!-- PRODUCT 1 -->
+
+    <div class="product">
+
+      <img
+        src="./images/stainless-steel-water-bottle.png"
+        alt="Owala FreeSip Stainless Steel Water Bottle"
+      >
+
+      <div class="product-info">
+
+        <h3>
+        Stainless Steel Water Bottle
+        </h3>
+
+        <p>
+           Owala FreeSip spout and push-button lid with lock.
+        </p>
+
+        <div class="price">
+          $29.99
+        </div>
+
+        <a href="https://www.amazon.com/Owala-FreeSip-SS-Very-Dark/dp/B085DVHQ57?pd_rd_w=HHEGc&content-id=amzn1.sym.fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_p=fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_r=BTN74350VCD230PHN6KD&pd_rd_wg=rt7Xl&pd_rd_r=91c29080-ba3d-4c42-aeb1-0805d58f7ce3&pd_rd_i=B085DVHQ57&th=1&linkCode=ll2&tag=nsk4426-20&linkId=1955367895fa3a1bac1245904a4c67db&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" class="amazon-btn" target="_blank"
+          rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- PRODUCT 2 -->
+
+    <div class="product">
+
+      <img
+        src="./images/cup-holder.png"
+        alt="HydroJug Traveler 40oz"
+      >
+
+      <div class="product-info">
+
+        <h3>
+         HydroJug Traveler 40oz 
+        </h3>
+
+        <p>
+         Insulated Tumbler with Handle & Straw, Pink Sand
+        </p>
+
+        <div class="price">
+          $31.99
+        </div>
+
+        <a href="https://www.amazon.com/HydroJug-Traveler-Resistant-Bottle-Reusable-Insulated/dp/B0CQVWT2NH?crid=1C3L144EG1OFT&dib=eyJ2IjoiMSJ9.Lhkx5Fr0_QhidTGpWSGoF6EPDzbsckpSmpqGcKkomPL-e-Sd_SHK7qnU8vQUQ5GcWhRsioYv97UgyGjxAwKmTOBPhBdygojWj1tMlA3d8gl0lZkqHykXQwT-toYnObK3vylqD4nwwkg8o88luHoQmZ-d-RMipv7pB0K5qtokhzUFiht-RIoBp1ozCzZi_dChvuVIpNnAcCOlLS627FdW67u4NzPjAmIQTe-mvFc-T8CwwN1xjFV1wSJAgAfN29A0M1CqecJs8RG9eXWOJ32AytnKjVnnxgLz71YZNjEpIaQ.t7NaPXj5ZGS_-6ccyunJbIYMFFZXyC9Oamyn74JSFfA&dib_tag=se&keywords=HydroJug%2BTraveler%2B40oz&qid=1790251440&sprefix=hydrojug%2Btraveler%2B40oz%2B%2Caps%2C727&sr=8-8&th=1&linkCode=ll2&tag=nsk4426-20&linkId=abd65da7915d7bd930a679bb307774f5&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl"  rel="nofollow sponsored noopener" class="amazon-btn">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- PRODUCT 3 -->
+
+    <div class="product">
+
+      <img
+      src="./images/screenless.png"
+        alt="Fitbit Google Air"
+      >
+
+      <div class="product-info">
+
+        <h3>
+        Fitbit Google Air
+        </h3>
+
+        <p>
+        personalized AI-powered coaching, Screenless Activity Tracker - Obsidian
+        </p>
+
+        <div class="price">
+          $99.00
+        </div>
+
+        <a href="https://www.amazon.com/Fitbit-Google-Air-Screenless-Activity/dp/B0GTMTZF3V?pd_rd_w=gdBal&content-id=amzn1.sym.fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_p=fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_r=BYB64D6SRSMA09XB8HFF&pd_rd_wg=AKBvk&pd_rd_r=cddd084b-0843-4521-8ccf-18f3cec774ce&pd_rd_i=B0GTMTZF3V&th=1&linkCode=ll2&tag=nsk4426-20&linkId=e765a2abeed566f40d5bf81e91bc7995&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" rel="nofollow sponsored noopener" class="amazon-btn">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- PRODUCT 4 -->
+
+    <div class="product">
+
+      <img
+        src="./images/sweatpants.png"
+        alt="Mens Set 2 Piece Hoodie"
+      >
+
+      <div class="product-info">
+
+        <h3>
+         Mens Set 2 Piece Hoodie
+        </h3>
+
+        <p>
+         Sweatpants Set Cargo Pockets Track Suits
+        </p>
+
+        <div class="price">
+          $19.99
+        </div>
+
+        <a href="https://www.amazon.com/ASUIU-Piece-Hoodie-Sweatpants-Pockets/dp/B0HJZV3KSH?pd_rd_w=LME5e&content-id=amzn1.sym.fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_p=fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_r=BYB64D6SRSMA09XB8HFF&pd_rd_wg=AKBvk&pd_rd_r=cddd084b-0843-4521-8ccf-18f3cec774ce&pd_rd_i=B0HJZV3KSH&th=1&psc=1&linkCode=ll2&tag=nsk4426-20&linkId=98e89374ee2195023a4012f1fb140efe&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" rel="nofollow sponsored noopener" class="amazon-btn">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     EXPLORE CATEGORIES
+========================= -->
+
+<section class="categories-section" id="categories">
+
+  <div class="categories-title">
+
+    <h2>Explore Categories</h2>
+
+    <p>
+      Browse everyday products across popular categories.
+    </p>
+
+  </div>
+
+
+  <div class="categories">
+
+
+    <!-- 1 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/clothing-shoes-jewelry-watches.png"
+          alt="Clothing, Shoes, Jewelry & Watches"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Clothing, Shoes, & Watches
+        </h3>
+
+        <a href="https://link.amazon/A07r9fl3Z"
+          class="category-amazon-btn"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+        >
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 2 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/sports-outdoors.png"
+          alt="Sports & Outdoors"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Sports & Outdoors
+        </h3>
+
+        <a
+          href="https://link.amazon/B09Jg16dY"
+          class="category-amazon-btn"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+        >
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 3 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/automotive.png"
+          alt="Automotive"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Automotive
+        </h3>
+
+        <a href="https://link.amazon/A08nUNhxq"
+           class="category-amazon-btn"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+        >
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 4 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/household-essentials.png"
+          alt="Household Essentials"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Household Essentials
+        </h3>
+
+        <a href="https://link.amazon/B03a8L3CV" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 5 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/books.png"
+          alt="Books"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Books
+        </h3>
+
+        <a href="https://link.amazon/A04iFvr4Z" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 6 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/movies-music-games.png"
+          alt="Movies, Music & Games"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Movies, Music & Games
+        </h3>
+
+        <a href="https://link.amazon/A09Lkqblu" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 7 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/electronics.png"
+          alt="Electronics"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Electronics
+        </h3>
+
+        <a href="https://link.amazon/A04uGtkFA" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 8 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/computers.png"
+          alt="Computers"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Computers
+        </h3>
+
+        <a href="https://link.amazon/A00rxqlsc" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 9 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/smart-home.png"
+          alt="Smart Home"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Smart Home
+        </h3>
+
+        <a href="https://link.amazon/A0gkSV9Yt" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 10 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/home-garden-tools.png"
+          alt="Home, Garden & Tools"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Home, Garden & Tools
+        </h3>
+
+        <a href="https://link.amazon/A0bsNFmMb" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 11 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/pets.png"
+          alt="Pets"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Pets
+        </h3>
+
+        <a href="https://link.amazon/A0gzRLcw8" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 12 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/beauty-health.png"
+          alt="Beauty & Health"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Beauty & Health
+        </h3>
+
+        <a href="https://link.amazon/A08dIxAoB" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 13 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/toys-kids-baby.png"
+          alt="Toys, Kids & Baby"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Toys, Kids & Baby
+        </h3>
+
+        <a href="https://link.amazon/A08dIxAoB" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+    <!-- 14 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/jewelry.png"
+          alt="Jewelry"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+       Jewelry
+        </h3>
+
+        <a href="https://link.amazon/B0dfltprD" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+<!-- 14 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/handmade.png"
+          alt="Handmade"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+          Handmade
+        </h3>
+
+        <a href="https://link.amazon/B0aOLmW6h" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+<!-- 14 -->
+
+    <div class="category">
+
+      <div class="category-image">
+
+        <img
+          src="./images/industrial-scientific.png"
+          alt="Industrial & Scientific"
+        >
+
+      </div>
+
+      <div class="category-content">
+
+        <h3>
+         Industrial & Scientific
+        </h3>
+
+        <a href="https://link.amazon/A04T0gpR3" class="category-amazon-btn"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Buy on Amazon
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <p>
+    © 2026 LooklyUS. All rights reserved.
+  </p>
+
+  <br>
+
+
+   <a href="./about.html" target="_blank">About</a>
+  <a href="./privacy-policy.html" target="_blank">Privacy</a>
+  <a href="./terms.html" target="_blank">Terms</a>
+  <a href="./affiliate-disclosure.html" target="_blank">Affiliate Disclosure</a>
+
+  <p class="disclosure">
+    As an Amazon Associate I earn from qualifying purchases.
+  </p>
+
+</footer>
+
+
+
+<!-- =========================
+      SEARCH JAVASCRIPT
+========================= -->
+
+<script>
+function searchProducts() {
+  const query = document.getElementById("searchInput").value.trim();
+
+  if (!query) {
+    alert("Please enter a product or search term.");
+    return;
+  }
+
+  // Amazon search URL format
+  const amazonSearchUrl = "https://www.amazon.com/s?k=" + encodeURIComponent(query);
+
+  // If you have an Amazon Associate/Affiliate Tag, append it like this:
+  // const amazonSearchUrl = "https://www.amazon.com/s?k=" + encodeURIComponent(query) + "&tag=nsk4426-20";
+
+  // Open Amazon search directly in a new tab
+  window.open(amazonSearchUrl, "_blank");
+}
+
+/* Allow ENTER key to search */
+document.getElementById("searchInput").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    searchProducts();
+  }
+});
+</script>
+
+<!-- =========================
+      PWA SERVICE WORKER
+========================= -->
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./sw.js").catch(function (err) {
+      console.warn("Service worker registration failed:", err);
+    });
+  });
+}
+</script>
+
+</body>
+</html>
+
