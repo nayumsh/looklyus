@@ -18,7 +18,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — LooklyUS</title>
 <meta name="description" content="Read the LooklyUS Privacy Policy to see what information we collect, how we use it, and how cookies and Amazon affiliate links work on our website.">
-
+<!-- PWA -->
+<link rel="manifest" href="https://looklyus.netlify.app/manifest.webmanifest">
+<meta name="theme-color" content="#ff6b35">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="LooklyUS">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" type="image/png" sizes="32x32" href="https://looklyus.netlify.app/favicon-32.png">
+<link rel="apple-touch-icon" href="https://looklyus.netlify.app/apple-touch-icon.png">
+  
   <style>
     * {
       box-sizing: border-box;
@@ -628,13 +637,15 @@
   const menuToggle = document.getElementById('menuToggle');
   const nav = document.querySelector('nav');
 
-  // Toggle menu when clicking the menu button
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const nav = document.querySelector('nav');
+
   menuToggle.addEventListener('click', function (e) {
-    e.stopPropagation(); // Prevents the document click listener from firing immediately
+    e.stopPropagation();
     nav.classList.toggle('active');
   });
 
-  // Close menu when clicking anywhere outside
   document.addEventListener('click', function (e) {
     if (nav.classList.contains('active') && !nav.contains(e.target) && !menuToggle.contains(e.target)) {
       nav.classList.remove('active');
@@ -642,5 +653,87 @@
   });
 </script>
 
+<!-- =========================
+      PWA INSTALL BANNER
+========================= -->
+
+<div id="installBanner" style="display:none; position:fixed; left:16px; right:16px; bottom:16px; background:#111; color:#fff; padding:14px 16px; border-radius:12px; box-shadow:0 8px 25px rgba(0,0,0,0.25); z-index:2000; align-items:center; gap:12px; font-family:Arial, Helvetica, sans-serif;">
+  <div style="width:36px;height:36px;flex-shrink:0; background:#ff6b35;border-radius:10px; display:flex;align-items:center;justify-content:center; font-weight:800;font-size:15px;">LU</div>
+  <div style="flex:1;font-size:13px;line-height:1.4;">
+    <strong id="installBannerTitle">Install LooklyUS</strong><br>
+    <span id="installBannerText">Add it to your home screen for quick access.</span>
+  </div>
+  <button id="installBannerAction" style="background:#ff6b35;color:#fff;border:none; padding:9px 14px;border-radius:8px; font-size:13px;font-weight:600;cursor:pointer; white-space:nowrap;">Install</button>
+  <button id="installBannerClose" aria-label="Dismiss" style="background:none;border:none;color:#aaa; font-size:18px;line-height:1;cursor:pointer;padding:4px;">&times;</button>
+</div>
+
+<script>
+(function () {
+  const DISMISS_KEY = "lookly-install-dismissed-at";
+  const DISMISS_DAYS = 7;
+
+  function wasDismissedRecently() {
+    const ts = localStorage.getItem(DISMISS_KEY);
+    if (!ts) return false;
+    const days = (Date.now() - Number(ts)) / (1000 * 60 * 60 * 24);
+    return days < DISMISS_DAYS;
+  }
+  function markDismissed() {
+    try { localStorage.setItem(DISMISS_KEY, String(Date.now())); } catch (e) {}
+  }
+  function isStandalone() {
+    return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+  }
+
+  const banner = document.getElementById("installBanner");
+  const actionBtn = document.getElementById("installBannerAction");
+  const closeBtn = document.getElementById("installBannerClose");
+  const titleEl = document.getElementById("installBannerTitle");
+  const textEl = document.getElementById("installBannerText");
+
+  closeBtn.addEventListener("click", function () {
+    banner.style.display = "none";
+    markDismissed();
+  });
+
+  if (isStandalone() || wasDismissedRecently()) {
+    // do nothing
+  } else {
+    const isIOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+
+    if (isIOS) {
+      const isSafari = /safari/i.test(navigator.userAgent) && !/crios|fxios|edgios/i.test(navigator.userAgent);
+      if (isSafari) {
+        titleEl.textContent = "Install LooklyUS";
+        textEl.textContent = "Tap the Share icon, then \"Add to Home Screen.\"";
+        actionBtn.style.display = "none";
+        banner.style.display = "flex";
+      }
+    } else {
+      let deferredPrompt = null;
+
+      window.addEventListener("beforeinstallprompt", function (e) {
+        e.preventDefault();
+        deferredPrompt = e;
+        banner.style.display = "flex";
+      });
+
+      actionBtn.addEventListener("click", function () {
+        if (!deferredPrompt) return;
+        banner.style.display = "none";
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(function () {
+          deferredPrompt = null;
+        });
+      });
+
+      window.addEventListener("appinstalled", function () {
+        banner.style.display = "none";
+        markDismissed();
+      });
+    }
+  }
+})();
+</script>
 </body>
 </html>
