@@ -28,8 +28,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="LooklyUS">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="icon" type="image/png" sizes="32x32" href="https://looklyus.netlify.app/icons/favicon-32.png">
-<link rel="apple-touch-icon" href="https://looklyus.netlify.app/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://looklyus.netlify.app/favicon-32.png">
+<link rel="apple-touch-icon" href="https://looklyus.netlify.app/apple-touch-icon.png">
 
    <style>
     * {
@@ -603,33 +603,33 @@
   <div class="tags">
 
 
-  <a href="https://www.amazon.com/s?k=wireless+buds&tag=nsk4426" class="tag" target="_blank"
+  <a href="https://www.amazon.com/s?k=wireless+buds&tag=nsk4426-20" class="tag" target="_blank"
           rel="nofollow sponsored noopener">
         Wireless Earbuds
         </a>
 
-  <a href="https://www.amazon.com/s?k= Air+Fryers&tag=nsk4426" class="tag" target="_blank"
+  <a href="https://www.amazon.com/s?k= Air+Fryers&tag=nsk4426-20" class="tag" target="_blank"
           rel="nofollow sponsored noopener">
       Air Fryers
         </a>
- <a href="https://www.amazon.com/s?k= Smart+Watches&tag=nsk4426" class="tag" target="_blank"
+ <a href="https://www.amazon.com/s?k= Smart+Watches&tag=nsk4426-20" class="tag" target="_blank"
           rel="nofollow sponsored noopener">
       Smart Watches
         </a>
-<a href="https://www.amazon.com/s?k=offee+Makers&tag=nsk4426" class="tag" target="_blank"
+<a href="https://www.amazon.com/s?k=offee+Makers&tag=nsk4426-20" class="tag" target="_blank"
           rel="nofollow sponsored noopener">
      Coffee Makers
         </a>
-<a href="https://www.amazon.com/s?k=Standing+Deskss&tag=nsk4426" class="tag" target="_blank"
+<a href="https://www.amazon.com/s?k=Standing+Deskss&tag=nsk4426-20" class="tag" target="_blank"
           rel="nofollow sponsored noopener">
      Standing Desks
         </a>
-<a href="https://www.amazon.com/s?k=TVs&tag=nsk4426" class="tag" target="_blank"
+<a href="https://www.amazon.com/s?k=TVs&tag=nsk4426-20" class="tag" target="_blank"
           rel="nofollow sponsored noopener">
      TVs
         </a>
 <a href="https://www.amazon.com/s?k=Christmas
-+Gifts&tag=nsk4426" class="tag" target="_blank"
++Gifts&tag=nsk4426-20" class="tag" target="_blank"
           rel="nofollow sponsored noopener">
      Christmas Gifts
         </a>
@@ -1353,17 +1353,13 @@ function searchProducts() {
     return;
   }
 
-  // Amazon search URL format
-  const amazonSearchUrl = "https://www.amazon.com/s?k=" + encodeURIComponent(query);
+  // Amazon search URL with your Associate/Affiliate tag
+  const amazonSearchUrl = "https://www.amazon.com/s?k=" + encodeURIComponent(query) + "&tag=nsk4426-20";
 
-  // If you have an Amazon Associate/Affiliate Tag, append it like this:
-  // const amazonSearchUrl = "https://www.amazon.com/s?k=" + encodeURIComponent(query) + "&tag=nsk4426-20";
-
-  // Open Amazon search directly in a new tab
   window.open(amazonSearchUrl, "_blank");
 }
 
-/* Allow ENTER key to search */
+/* Allow ENTER key to trigger search */
 document.getElementById("searchInput").addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     searchProducts();
