@@ -1,34 +1,46 @@
 {
-  "id": "./",
   "name": "LooklyUS — Discover Products You'll Love",
   "short_name": "LooklyUS",
   "description": "Discover trending products and popular categories, with links to shop on Amazon.",
-  "start_url": "https://looklyus.netlify.app",
-  "scope": "./",
+  "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait-primary",
   "background_color": "#ffffff",
-  "theme_color": "#ff6b35",
-  "lang": "en",
-  "categories": ["shopping", "lifestyle"],
+  "theme_color": "#e05638",
+  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "https://looklyus.netlify.app/icon-192.png",
+      "src": "https://www.looklyus.com/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://looklyus.netlify.app/icon-512.png",
+      "src": "https://www.looklyus.com/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": ".https://looklyus.netlify.app/icon-maskable-512.png",
+      "src": "https://www.looklyus.com/icon-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://www.looklyus.com/desktop-screenshot.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "LooklyUS Desktop View"
+    },
+    {
+      "src": "https://www.looklyus.com/mobile-screenshot.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "LooklyUS Mobile View"
     }
   ]
 }
