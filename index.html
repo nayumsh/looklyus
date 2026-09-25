@@ -1,4 +1,6 @@
 
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
+ 
   gtag('config', 'G-5741PZ1V91');
 </script>
 <!-- Primary Favicon (.ico) -->
@@ -18,8 +20,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LooklyUS — Discover Products You'll Love</title>
 <meta name="description" content="LooklyUS helps you discover trending products and popular categories, with links to shop on Amazon. As an Amazon Associate, we earn from qualifying purchases.">
-
-
+ 
+ 
 <!-- PWA -->
 <link rel="manifest" href="https://looklyus.netlify.app/manifest.webmanifest">
 <meta name="theme-color" content="#ff6b35">
@@ -29,7 +31,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="icon" type="image/png" sizes="32x32" href="https://looklyus.netlify.app/favicon-32.png">
 <link rel="apple-touch-icon" href="https://looklyus.netlify.app/apple-touch-icon.png">
-
+ 
    <style>
     * {
       box-sizing: border-box;
@@ -42,7 +44,7 @@
       color: #222;
       line-height: 1.5;
     }
-
+ 
     /* =========================       HEADER    ========================= */
     header {
       border-bottom: 1px solid #eee;
@@ -106,7 +108,7 @@
     nav a:hover {
       color: #ff6b35;
     }
-
+ 
     /* =========================       CONTENT SECTION (ALL DEVICES)    ========================= */
     main.container {
       width: 100%;
@@ -115,7 +117,7 @@
       padding: 60px 40px; /* Comfortable top/bottom & side margins */
       box-sizing: border-box;
     }
-
+ 
     main.container h1 {
       font-size: 2.25rem;
       font-weight: 700;
@@ -123,7 +125,7 @@
       margin-bottom: 28px;
       line-height: 1.2;
     }
-
+ 
     main.container p {
       font-size: 1.05rem;
       line-height: 1.7;
@@ -131,7 +133,7 @@
       margin-bottom: 22px;
       max-width: 850px;   /* Optimal reading line length */
     }
-
+ 
     /* =========================       HERO    ========================= */
     .hero {
       text-align: center;
@@ -158,6 +160,16 @@
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      animation: searchGlowPulse 2.6s ease-in-out infinite;
+    }
+    .search-box:focus-within {
+      animation: none;
+      border-color: #ff6b35;
+      box-shadow: 0 0 0 4px rgba(255,107,53,0.15);
+    }
+    @keyframes searchGlowPulse {
+      0%, 100% { box-shadow: 0 4px 15px rgba(0,0,0,0.06), 0 0 0 0 rgba(255,107,53,0); border-color: #ddd; }
+      50% { box-shadow: 0 4px 15px rgba(0,0,0,0.06), 0 0 0 6px rgba(255,107,53,0.12); border-color: #f3b98c; }
     }
     .search-box input {
       flex: 1;
@@ -177,7 +189,7 @@
     .search-box button:hover {
       background: #e95724;
     }
-
+ 
     /* =========================       POPULAR SEARCHES    ========================= */
     .popular {
       padding: 35px 5%;
@@ -206,7 +218,7 @@
       border-color: #ff6b35;
       color: #ff6b35;
     }
-
+ 
     /* =========================       PRODUCTS    ========================= */
     .section {
       padding: 45px 5%;
@@ -280,7 +292,7 @@
     .amazon-btn:hover {
       background: #333;
     }
-
+ 
     /* =========================       EXPLORE CATEGORIES    ========================= */
     .categories-section {
       background: #fafafa;
@@ -361,7 +373,7 @@
     .category-amazon-btn:hover {
       background: #ff6b35;
     }
-
+ 
     /* =========================       FOOTER    ========================= */
     footer {
       margin-top: 0;
@@ -387,7 +399,7 @@
       color: #888;
       line-height: 1.6;
     }
-
+ 
     /* =========================       TABLET    ========================= */
     @media (max-width: 1100px) {
       .categories {
@@ -397,7 +409,7 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
-
+ 
     /* =========================       MOBILE / RESPONSIVE BREAKPOINTS    ========================= */
     .menu-toggle {
       display: none;
@@ -428,7 +440,7 @@
         margin-bottom: 18px;
       }
     }
-
+ 
     @media (max-width: 700px) {
       header {
         padding: 15px 20px;
@@ -464,7 +476,7 @@
         display: block;
         margin-left: auto;
       }
-
+ 
       .hero {
         padding: 55px 20px 40px;
       }
@@ -516,97 +528,97 @@
     }
   </style>
 </head>
-
-
+ 
+ 
 <body>
-
-
+ 
+ 
 <!-- =========================
      HEADER
 ========================= -->
-
+ 
 <header>
 <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
-
+ 
 <a href="#" class="brand">
-
+ 
   <div class="brand-main">
-
+ 
     <div class="logo-icon">LU</div>
-
+ 
     <div class="logo">
       Lookly<span>US</span>
     </div>
-
+ 
   </div>
-
+ 
   <div class="associate">
     An Amazon Associate
   </div>
-
+ 
 </a>
-
-
+ 
+ 
   <nav>
-
+ 
     <a href="#">Home</a>
     <a href="#categories">Categories</a>
     <a href="#trending">Trending</a>
     <a href="#gifts">Gifts</a>
-
+ 
   </nav>
-
+ 
 </header>
-
-
-
+ 
+ 
+ 
 <!-- =========================
      HERO
 ========================= -->
-
+ 
 <section class="hero">
-
+ 
   <h1>What are you looking for?</h1>
-
+ 
   <p>
     Find useful, interesting, and worth-discovering products for your everyday life.
   </p>
-
-
+ 
+ 
   <div class="search-box">
-
+ 
     <input
       type="text"
       placeholder="Search products, brands, and more..."
       id="searchInput"
     >
-
+ 
     <button onclick="searchProducts()">
       Search
     </button>
-
+ 
   </div>
-
+ 
 </section>
-
-
-
+ 
+ 
+ 
 <!-- =========================
      POPULAR SEARCHES
 ========================= -->
-
+ 
 <section class="popular">
-
+ 
   <h2>Popular Searches</h2>
-
+ 
   <div class="tags">
-
-
+ 
+ 
   <a href="https://www.amazon.com/s?k=wireless+buds&tag=nsk4426-20" class="tag" target="_blank"
           rel="nofollow sponsored noopener">
         Wireless Earbuds
         </a>
-
+ 
   <a href="https://www.amazon.com/s?k=Air+Fryers&tag=nsk4426-20" class="tag" target="_blank"
           rel="nofollow sponsored noopener">
       Air Fryers
@@ -633,205 +645,205 @@
      Christmas Gifts
         </a>
   </div>
-
+ 
 </section>
-
-
-
+ 
+ 
+ 
 <!-- =========================
      TRENDING PRODUCTS
 ========================= -->
-
+ 
 <section class="section" id="trending">
-
+ 
   <div class="section-header">
-
+ 
     <h2>Trending Products</h2>
-
-
-
+ 
+ 
+ 
   </div>
-
-
+ 
+ 
   <div class="products">
-
-
+ 
+ 
     <!-- PRODUCT 1 -->
-
+ 
     <div class="product">
-
+ 
       <img
         src="https://looklyus.netlify.app/stainless-steel-water-bottle.png"
         alt="Owala FreeSip Stainless Steel Water Bottle"
       >
-
+ 
       <div class="product-info">
-
+ 
         <h3>
         Stainless Steel Water Bottle
         </h3>
-
+ 
         <p>
            Owala FreeSip spout and push-button lid with lock.
         </p>
-
+ 
         <div class="price">
           $29.99
         </div>
-
+ 
         <a href="https://www.amazon.com/Owala-FreeSip-SS-Very-Dark/dp/B085DVHQ57?pd_rd_w=HHEGc&content-id=amzn1.sym.fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_p=fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_r=BTN74350VCD230PHN6KD&pd_rd_wg=rt7Xl&pd_rd_r=91c29080-ba3d-4c42-aeb1-0805d58f7ce3&pd_rd_i=B085DVHQ57&th=1&linkCode=ll2&tag=nsk4426-20&linkId=1955367895fa3a1bac1245904a4c67db&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" class="amazon-btn" target="_blank"
           rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- PRODUCT 2 -->
-
+ 
     <div class="product">
-
+ 
       <img
         src="https://looklyus.netlify.app/cup-holder.png"
         alt="HydroJug Traveler 40oz"
       >
-
+ 
       <div class="product-info">
-
+ 
         <h3>
          HydroJug Traveler 40oz 
         </h3>
-
+ 
         <p>
          Insulated Tumbler with Handle & Straw, Pink Sand
         </p>
-
+ 
         <div class="price">
           $31.99
         </div>
-
+ 
         <a href="https://www.amazon.com/HydroJug-Traveler-Resistant-Bottle-Reusable-Insulated/dp/B0CQVWT2NH?crid=1C3L144EG1OFT&dib=eyJ2IjoiMSJ9.Lhkx5Fr0_QhidTGpWSGoF6EPDzbsckpSmpqGcKkomPL-e-Sd_SHK7qnU8vQUQ5GcWhRsioYv97UgyGjxAwKmTOBPhBdygojWj1tMlA3d8gl0lZkqHykXQwT-toYnObK3vylqD4nwwkg8o88luHoQmZ-d-RMipv7pB0K5qtokhzUFiht-RIoBp1ozCzZi_dChvuVIpNnAcCOlLS627FdW67u4NzPjAmIQTe-mvFc-T8CwwN1xjFV1wSJAgAfN29A0M1CqecJs8RG9eXWOJ32AytnKjVnnxgLz71YZNjEpIaQ.t7NaPXj5ZGS_-6ccyunJbIYMFFZXyC9Oamyn74JSFfA&dib_tag=se&keywords=HydroJug%2BTraveler%2B40oz&qid=1790251440&sprefix=hydrojug%2Btraveler%2B40oz%2B%2Caps%2C727&sr=8-8&th=1&linkCode=ll2&tag=nsk4426-20&linkId=abd65da7915d7bd930a679bb307774f5&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl"  rel="nofollow sponsored noopener" class="amazon-btn">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- PRODUCT 3 -->
-
+ 
     <div class="product">
-
+ 
       <img
       src="https://looklyus.netlify.app/screenless.png"
         alt="Fitbit Google Air"
       >
-
+ 
       <div class="product-info">
-
+ 
         <h3>
         Fitbit Google Air
         </h3>
-
+ 
         <p>
         personalized AI-powered coaching, Screenless Activity Tracker - Obsidian
         </p>
-
+ 
         <div class="price">
           $99.00
         </div>
-
+ 
         <a href="https://www.amazon.com/Fitbit-Google-Air-Screenless-Activity/dp/B0GTMTZF3V?pd_rd_w=gdBal&content-id=amzn1.sym.fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_p=fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_r=BYB64D6SRSMA09XB8HFF&pd_rd_wg=AKBvk&pd_rd_r=cddd084b-0843-4521-8ccf-18f3cec774ce&pd_rd_i=B0GTMTZF3V&th=1&linkCode=ll2&tag=nsk4426-20&linkId=e765a2abeed566f40d5bf81e91bc7995&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" rel="nofollow sponsored noopener" class="amazon-btn">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- PRODUCT 4 -->
-
+ 
     <div class="product">
-
+ 
       <img
         src="https://looklyus.netlify.app/sweatpants.png"
         alt="Mens Set 2 Piece Hoodie"
       >
-
+ 
       <div class="product-info">
-
+ 
         <h3>
          Mens Set 2 Piece Hoodie
         </h3>
-
+ 
         <p>
          Sweatpants Set Cargo Pockets Track Suits
         </p>
-
+ 
         <div class="price">
           $19.99
         </div>
-
+ 
         <a href="https://www.amazon.com/ASUIU-Piece-Hoodie-Sweatpants-Pockets/dp/B0HJZV3KSH?pd_rd_w=LME5e&content-id=amzn1.sym.fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_p=fef9af56-6177-46e9-8710-a5293a68dd39&pf_rd_r=BYB64D6SRSMA09XB8HFF&pd_rd_wg=AKBvk&pd_rd_r=cddd084b-0843-4521-8ccf-18f3cec774ce&pd_rd_i=B0HJZV3KSH&th=1&psc=1&linkCode=ll2&tag=nsk4426-20&linkId=98e89374ee2195023a4012f1fb140efe&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" rel="nofollow sponsored noopener" class="amazon-btn">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
+ 
   </div>
-
+ 
 </section>
-
-
-
+ 
+ 
+ 
 <!-- =========================
      EXPLORE CATEGORIES
 ========================= -->
-
+ 
 <section class="categories-section" id="categories">
-
+ 
   <div class="categories-title">
-
+ 
     <h2>Explore Categories</h2>
-
+ 
     <p>
       Browse everyday products across popular categories.
     </p>
-
+ 
   </div>
-
-
+ 
+ 
   <div class="categories">
-
-
+ 
+ 
     <!-- 1 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/clothing-shoes-jewelry-watches.png"
           alt="Clothing, Shoes, Jewelry & Watches"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Clothing, Shoes, & Watches
         </h3>
-
+ 
         <a href="https://link.amazon/A07r9fl3Z"
           class="category-amazon-btn"
           target="_blank"
@@ -839,32 +851,32 @@
         >
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 2 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/sports-outdoors.png"
           alt="Sports & Outdoors"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Sports & Outdoors
         </h3>
-
+ 
         <a
           href="https://link.amazon/B09Jg16dY"
           class="category-amazon-btn"
@@ -873,32 +885,32 @@
         >
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 3 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/automotive.png"
           alt="Automotive"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Automotive
         </h3>
-
+ 
         <a href="https://link.amazon/A08nUNhxq"
            class="category-amazon-btn"
           target="_blank"
@@ -906,458 +918,458 @@
         >
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 4 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/household-essentials.png"
           alt="Household Essentials"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Household Essentials
         </h3>
-
+ 
         <a href="https://link.amazon/B03a8L3CV" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 5 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/books.png"
           alt="Books"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Books
         </h3>
-
+ 
         <a href="https://link.amazon/A04iFvr4Z" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 6 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/movies-music-games.png"
           alt="Movies, Music & Games"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Movies, Music & Games
         </h3>
-
+ 
         <a href="https://link.amazon/A09Lkqblu" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 7 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/electronics.png"
           alt="Electronics"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Electronics
         </h3>
-
+ 
         <a href="https://link.amazon/A04uGtkFA" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 8 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/computers.png"
           alt="Computers"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Computers
         </h3>
-
+ 
         <a href="https://link.amazon/A00rxqlsc" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 9 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/smart-home.png"
           alt="Smart Home"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Smart Home
         </h3>
-
+ 
         <a href="https://link.amazon/A0gkSV9Yt" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 10 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/home-garden-tools.png"
           alt="Home, Garden & Tools"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Home, Garden & Tools
         </h3>
-
+ 
         <a href="https://link.amazon/A0bsNFmMb" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 11 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/pets.png"
           alt="Pets"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Pets
         </h3>
-
+ 
         <a href="https://link.amazon/A0gzRLcw8" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 12 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/beauty-health.png"
           alt="Beauty & Health"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Beauty & Health
         </h3>
-
+ 
         <a href="https://link.amazon/A08dIxAoB" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
     <!-- 13 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/toys-kids-baby.png"
           alt="Toys, Kids & Baby"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Toys, Kids & Baby
         </h3>
-
+ 
         <a href="https://link.amazon/A08dIxAoB" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
     <!-- 14 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/jewelry.png"
           alt="Jewelry"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
        Jewelry
         </h3>
-
+ 
         <a href="https://link.amazon/B0dfltprD" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
 <!-- 14 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/handmade.png"
           alt="Handmade"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
           Handmade
         </h3>
-
+ 
         <a href="https://link.amazon/B0aOLmW6h" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
 <!-- 14 -->
-
+ 
     <div class="category">
-
+ 
       <div class="category-image">
-
+ 
         <img
           src="https://looklyus.netlify.app/industrial-scientific.png"
           alt="Industrial & Scientific"
         >
-
+ 
       </div>
-
+ 
       <div class="category-content">
-
+ 
         <h3>
          Industrial & Scientific
         </h3>
-
+ 
         <a href="https://link.amazon/A04T0gpR3" class="category-amazon-btn"
            target="_blank"
            rel="nofollow sponsored noopener">
           Buy on Amazon
         </a>
-
+ 
       </div>
-
+ 
     </div>
-
-
-
+ 
+ 
+ 
   </div>
-
+ 
 </section>
-
-
-
+ 
+ 
+ 
 <!-- =========================
      FOOTER
 ========================= -->
-
+ 
 <footer>
-
+ 
   <p>
     © 2026 LooklyUS. All rights reserved.
   </p>
-
+ 
   <br>
-
-
+ 
+ 
    <a href="https://looklyus.netlify.app/about.html" target="_blank">About</a>
   <a href="https://looklyus.netlify.app/privacy-policy.html" target="_blank">Privacy</a>
   <a href="https://looklyus.netlify.app/terms.html" target="_blank">Terms</a>
   <a href="https://looklyus.netlify.app/affiliate-disclosure.html" target="_blank">Affiliate Disclosure</a>
-
+ 
   <p class="disclosure">
     As an Amazon Associate I earn from qualifying purchases.
   </p>
-
+ 
 </footer>
-
-
-
+ 
+ 
+ 
 <!-- =========================
       SEARCH JAVASCRIPT
 ========================= -->
-
+ 
 <script>
 function searchProducts() {
   const query = document.getElementById("searchInput").value.trim();
-
+ 
   if (!query) {
     alert("Please enter a product or search term.");
     return;
   }
-
+ 
   // Amazon search URL with your Associate/Affiliate tag
   const amazonSearchUrl = "https://www.amazon.com/s?k=" + encodeURIComponent(query) + "&tag=nsk4426-20";
-
+ 
   window.open(amazonSearchUrl, "_blank");
 }
-
+ 
 /* Allow ENTER key to trigger search */
 document.getElementById("searchInput").addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
@@ -1365,11 +1377,66 @@ document.getElementById("searchInput").addEventListener("keypress", function(eve
   }
 });
 </script>
-
+ 
+<!-- =========================
+      SEARCH BOX PLACEHOLDER ANIMATION
+========================= -->
+ 
+<script>
+(function () {
+  var searchInput = document.getElementById("searchInput");
+  if (!searchInput) return;
+ 
+  var examples = [
+    "Search wireless earbuds...",
+    "Search air fryers...",
+    "Search smart watches...",
+    "Search standing desks...",
+    "Search Christmas gifts..."
+  ];
+ 
+  var lineIndex = 0;
+  var charIndex = 0;
+  var deleting = false;
+  var typingTimer = null;
+ 
+  function typeTick() {
+    // pause the animated placeholder while the user is typing/focused
+    if (document.activeElement === searchInput) {
+      typingTimer = setTimeout(typeTick, 400);
+      return;
+    }
+ 
+    var full = examples[lineIndex];
+ 
+    if (!deleting) {
+      charIndex++;
+      searchInput.setAttribute("placeholder", full.slice(0, charIndex));
+      if (charIndex === full.length) {
+        deleting = true;
+        typingTimer = setTimeout(typeTick, 1400);
+        return;
+      }
+    } else {
+      charIndex--;
+      searchInput.setAttribute("placeholder", full.slice(0, charIndex));
+      if (charIndex === 0) {
+        deleting = false;
+        lineIndex = (lineIndex + 1) % examples.length;
+      }
+    }
+ 
+    typingTimer = setTimeout(typeTick, deleting ? 35 : 60);
+  }
+ 
+  typeTick();
+})();
+</script>
+ 
 <!-- =========================
       PWA SERVICE WORKER
 ========================= -->
-
+ 
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
@@ -1382,23 +1449,23 @@ if ("serviceWorker" in navigator) {
 <script>
   const menuToggle = document.getElementById('menuToggle');
   const nav = document.querySelector('nav');
-
+ 
   menuToggle.addEventListener('click', function (e) {
     e.stopPropagation();
     nav.classList.toggle('active');
   });
-
+ 
   document.addEventListener('click', function (e) {
     if (nav.classList.contains('active') && !nav.contains(e.target) && !menuToggle.contains(e.target)) {
       nav.classList.remove('active');
     }
   });
 </script>
-
+ 
 <!-- =========================
       PWA INSTALL BANNER
 ========================= -->
-
+ 
 <div id="installBanner" style="display:none; position:fixed; left:16px; right:16px; bottom:16px; background:#111; color:#fff; padding:14px 16px; border-radius:12px; box-shadow:0 8px 25px rgba(0,0,0,0.25); z-index:2000; align-items:center; gap:12px; font-family:Arial, Helvetica, sans-serif;">
   <div style="width:36px;height:36px;flex-shrink:0; background:#ff6b35;border-radius:10px; display:flex;align-items:center;justify-content:center; font-weight:800;font-size:15px;">LU</div>
   <div style="flex:1;font-size:13px;line-height:1.4;">
@@ -1408,12 +1475,12 @@ if ("serviceWorker" in navigator) {
   <button id="installBannerAction" style="background:#ff6b35;color:#fff;border:none; padding:9px 14px;border-radius:8px; font-size:13px;font-weight:600;cursor:pointer; white-space:nowrap;">Install</button>
   <button id="installBannerClose" aria-label="Dismiss" style="background:none;border:none;color:#aaa; font-size:18px;line-height:1;cursor:pointer;padding:4px;">&times;</button>
 </div>
-
+ 
 <script>
 (function () {
   const DISMISS_KEY = "lookly-install-dismissed-at";
   const DISMISS_DAYS = 7;
-
+ 
   function wasDismissedRecently() {
     const ts = localStorage.getItem(DISMISS_KEY);
     if (!ts) return false;
@@ -1426,23 +1493,23 @@ if ("serviceWorker" in navigator) {
   function isStandalone() {
     return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
   }
-
+ 
   const banner = document.getElementById("installBanner");
   const actionBtn = document.getElementById("installBannerAction");
   const closeBtn = document.getElementById("installBannerClose");
   const titleEl = document.getElementById("installBannerTitle");
   const textEl = document.getElementById("installBannerText");
-
+ 
   closeBtn.addEventListener("click", function () {
     banner.style.display = "none";
     markDismissed();
   });
-
+ 
   if (isStandalone() || wasDismissedRecently()) {
     // do nothing
   } else {
     const isIOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
-
+ 
     if (isIOS) {
       const isSafari = /safari/i.test(navigator.userAgent) && !/crios|fxios|edgios/i.test(navigator.userAgent);
       if (isSafari) {
@@ -1453,13 +1520,13 @@ if ("serviceWorker" in navigator) {
       }
     } else {
       let deferredPrompt = null;
-
+ 
       window.addEventListener("beforeinstallprompt", function (e) {
         e.preventDefault();
         deferredPrompt = e;
         banner.style.display = "flex";
       });
-
+ 
       actionBtn.addEventListener("click", function () {
         if (!deferredPrompt) return;
         banner.style.display = "none";
@@ -1468,7 +1535,7 @@ if ("serviceWorker" in navigator) {
           deferredPrompt = null;
         });
       });
-
+ 
       window.addEventListener("appinstalled", function () {
         banner.style.display = "none";
         markDismissed();
@@ -1477,13 +1544,9 @@ if ("serviceWorker" in navigator) {
   }
 })();
 </script>
-
+ 
 </body>
 </html>
+ 
 
-</body>
-</html>
-
-</body>
-</html>
 
