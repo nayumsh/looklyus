@@ -1396,7 +1396,7 @@ if ("serviceWorker" in navigator) {
 </script>
 
 <!-- =========================
-      PWA INSTALL BANNER
+     PWA INSTALL BANNER
 ========================= -->
 
 <div id="installBanner" style="display:none; position:fixed; left:16px; right:16px; bottom:16px; background:#111; color:#fff; padding:14px 16px; border-radius:12px; box-shadow:0 8px 25px rgba(0,0,0,0.25); z-index:2000; align-items:center; gap:12px; font-family:Arial, Helvetica, sans-serif;">
@@ -1414,15 +1414,22 @@ if ("serviceWorker" in navigator) {
   const DISMISS_KEY = "lookly-install-dismissed-at";
   const DISMISS_DAYS = 7;
 
+  // 1. Check if device is desktop screen (screen width >= 1024px)
+  function isDesktop() {
+    return window.matchMedia("(min-width: 1024px)").matches;
+  }
+
   function wasDismissedRecently() {
     const ts = localStorage.getItem(DISMISS_KEY);
     if (!ts) return false;
     const days = (Date.now() - Number(ts)) / (1000 * 60 * 60 * 24);
     return days < DISMISS_DAYS;
   }
+
   function markDismissed() {
     try { localStorage.setItem(DISMISS_KEY, String(Date.now())); } catch (e) {}
   }
+
   function isStandalone() {
     return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
   }
@@ -1438,46 +1445,46 @@ if ("serviceWorker" in navigator) {
     markDismissed();
   });
 
-  if (isStandalone() || wasDismissedRecently()) {
-    // do nothing
-  } else {
-    const isIOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+  // 2. Early return if Desktop, already installed as App, or dismissed
+  if (isDesktop() || isStandalone() || wasDismissedRecently()) {
+    return; // Exit script and do not show banner on desktop
+  }
 
-    if (isIOS) {
-      const isSafari = /safari/i.test(navigator.userAgent) && !/crios|fxios|edgios/i.test(navigator.userAgent);
-      if (isSafari) {
-        titleEl.textContent = "Install LooklyUS";
-        textEl.textContent = "Tap the Share icon, then \"Add to Home Screen.\"";
-        actionBtn.style.display = "none";
-        banner.style.display = "flex";
-      }
-    } else {
-      let deferredPrompt = null;
+  const isIOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
 
-      window.addEventListener("beforeinstallprompt", function (e) {
-        e.preventDefault();
-        deferredPrompt = e;
-        banner.style.display = "flex";
-      });
-
-      actionBtn.addEventListener("click", function () {
-        if (!deferredPrompt) return;
-        banner.style.display = "none";
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.finally(function () {
-          deferredPrompt = null;
-        });
-      });
-
-      window.addEventListener("appinstalled", function () {
-        banner.style.display = "none";
-        markDismissed();
-      });
+  if (isIOS) {
+    const isSafari = /safari/i.test(navigator.userAgent) && !/crios|fxios|edgios/i.test(navigator.userAgent);
+    if (isSafari) {
+      titleEl.textContent = "Install LooklyUS";
+      textEl.textContent = "Tap the Share icon, then \"Add to Home Screen.\"";
+      actionBtn.style.display = "none";
+      banner.style.display = "flex";
     }
+  } else {
+    let deferredPrompt = null;
+
+    window.addEventListener("beforeinstallprompt", function (e) {
+      e.preventDefault();
+      deferredPrompt = e;
+      banner.style.display = "flex";
+    });
+
+    actionBtn.addEventListener("click", function () {
+      if (!deferredPrompt) return;
+      banner.style.display = "none";
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.finally(function () {
+        deferredPrompt = null;
+      });
+    });
+
+    window.addEventListener("appinstalled", function () {
+      banner.style.display = "none";
+      markDismissed();
+    });
   }
 })();
 </script>
-
 </body>
 </html>
 
