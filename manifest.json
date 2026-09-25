@@ -3,7 +3,7 @@
   "name": "LooklyUS — Discover Products You'll Love",
   "short_name": "LooklyUS",
   "description": "Discover trending products and popular categories, with links to shop on Amazon.",
-  "start_url": "https://looklyus.netlify.app/index.html",
+  "start_url": "https://looklyus.netlify.app",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
