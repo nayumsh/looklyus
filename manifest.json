@@ -3,7 +3,7 @@
   "name": "LooklyUS — Discover Products You'll Love",
   "short_name": "LooklyUS",
   "description": "Discover trending products and popular categories, with links to shop on Amazon.",
-  "start_url": "./index.html",
+  "start_url": "https://looklyus.netlify.app/index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
@@ -13,19 +13,19 @@
   "categories": ["shopping", "lifestyle"],
   "icons": [
     {
-      "src": "./icons/icon-192.png",
+      "src": "https://looklyus.netlify.app/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./icons/icon-512.png",
+      "src": "https://looklyus.netlify.app/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./icons/icon-maskable-512.png",
+      "src": ".https://looklyus.netlify.app/icon-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
