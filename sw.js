@@ -6,18 +6,18 @@ const STATIC_CACHE = "lookly-static-" + CACHE_VERSION;
 const RUNTIME_CACHE = "lookly-runtime-" + CACHE_VERSION;
 
 const PRECACHE_URLS = [
-  "./",
-  "./index.html",
-  "./about.html",
-  "./privacy-policy.html",
-  "./terms.html",
-  "./affiliate-disclosure.html",
-  "./offline.html",
-  "./manifest.webmanifest",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png",
-  "./icons/apple-touch-icon.png",
-  "./icons/favicon-32.png"
+  "/",
+  "/index.html",
+  "/about.html",
+  "/privacy-policy.html",
+  "/terms.html",
+  "/affiliate-disclosure.html",
+  "/offline.html",
+  "/manifest.webmanifest",
+  "/icon-192.png",
+  "/icon-512.png",
+  "/apple-touch-icon.png",
+  "/icons/favicon-32.png"
 ];
 
 const MAX_RUNTIME_ENTRIES = 80;
